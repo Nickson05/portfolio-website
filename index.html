@@ -3,334 +3,304 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nickson Darwin — BI & Automation Portfolio</title>
-<meta name="description" content="Nickson Darwin P — BI & Automation Analyst specializing in Oracle SQL, Metabase, Power BI, AI voice automation and reporting automation.">
+<title>Nickson Darwin — Data Analyst & BI Portfolio</title>
+<meta name="description" content="Nickson Darwin P — Data Analyst and BI Analyst. Organising data, unlocking insights, driving decisions: BI dashboards, reporting automation and AI-driven solutions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,900;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="css/style.css?v=14">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗄️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=5">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 </head>
 <body>
 
-<div class="grain"></div>
-<div id="cursor-glow"></div>
-
-<!-- Loader -->
-<div id="loader">
-  <div class="loader-inner">
-    <span class="loader-code">ND</span>
-    <div class="loader-bar"><div class="loader-fill"></div></div>
-    <p>loading portfolio ...</p>
-  </div>
-</div>
-
-<!-- Navbar -->
-<header id="header">
-  <nav class="nav container">
-    <a href="#home" class="logo">ND<span>.</span></a>
-    <ul class="nav-links">
-      <li><a href="#home" class="nav-link active">Home</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#process" class="nav-link">Process</a></li>
-      <li><a href="#impact" class="nav-link">Impact</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-    </ul>
-    <a href="assets/Nickson_Darwin_Resume.pdf" download class="btn btn-small nav-cta">
-      <i class="fa-solid fa-download"></i> Resume
-    </a>
-    <button id="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+<header class="nav"><div class="container nav-in">
+  <a href="#home" class="brand">Nickson Darwin<span>.</span></a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#home">Home</a><a href="#work">Case Studies</a><a href="#stack">Tool Stack</a><a href="#journey">Career</a><a href="#contact">Contact</a>
   </nav>
-</header>
+  <a href="assets/Nickson_Darwin_Resume_SEP_2026.pdf" download class="btn btn-primary">Resume</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+</div></header>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <svg class="deco deco-tl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="gradTL" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#b0525f"/><stop offset="100%" stop-color="#7c2333"/>
-    </linearGradient></defs>
-    <g fill="none" stroke="url(#gradTL)" stroke-width="1.4" opacity=".55">
-      <ellipse cx="60" cy="40" rx="26" ry="10"/>
-      <ellipse cx="60" cy="66" rx="26" ry="10"/>
-      <path d="M34 40 V66"/><path d="M86 40 V66"/>
-      <circle cx="140" cy="120" r="5" fill="url(#gradTL)" stroke="none"/>
-      <circle cx="170" cy="100" r="3.5" fill="url(#gradTL)" stroke="none"/>
-      <circle cx="165" cy="150" r="4" fill="url(#gradTL)" stroke="none"/>
-      <path d="M140 120 L170 100"/><path d="M140 120 L165 150"/><path d="M170 100 L165 150"/>
-    </g>
-  </svg>
-  <svg class="deco deco-br" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="gradBR" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0%" stop-color="#7c2333"/><stop offset="100%" stop-color="#d98c95"/>
-    </linearGradient></defs>
-    <g fill="none" stroke="url(#gradBR)" stroke-width="1.4" opacity=".5">
-      <ellipse cx="140" cy="150" rx="34" ry="13"/>
-      <ellipse cx="140" cy="182" rx="34" ry="13"/>
-      <path d="M106 150 V182"/><path d="M174 150 V182"/>
-      <circle cx="50" cy="70" r="5" fill="url(#gradBR)" stroke="none"/>
-      <circle cx="20" cy="95" r="3.5" fill="url(#gradBR)" stroke="none"/>
-      <circle cx="30" cy="45" r="4" fill="url(#gradBR)" stroke="none"/>
-      <path d="M50 70 L20 95"/><path d="M50 70 L30 45"/><path d="M20 95 L30 45"/>
-    </g>
-  </svg>
-
-  <div class="container hero-top">
-    <p class="kicker">BI &amp; Automation Analyst · Database Administrator</p>
-    <p class="kicker kicker-right">Nickson Darwin · Portfolio</p>
-  </div>
-
-  <div class="container hero-stage">
-    <div class="hero-headline-wrap">
-      <h1 class="hero-headline" data-reveal>INSIGHTS</h1>
+<section class="hero" id="home"><div class="container hero-grid">
+  <div>
+    <span class="eyebrow"><i></i> Data Analyst · BI Analyst · Automation</span>
+    <h1>Organising Data, <em>Unlocking Insights,</em> Driving Decisions.</h1>
+    <p class="lead">I turn scattered business data into clean, trusted dashboards, automate repetitive reporting, and build practical AI-driven solutions that help teams act faster.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-primary">View case studies</a>
+      <a href="https://www.linkedin.com/in/nickson-darwin-0643aa287/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <button class="btn btn-ghost" id="copyEmail">Copy email</button>
     </div>
-
-    <div class="hero-bottom">
-      <div class="hero-left" data-reveal>
-        <h2 class="hero-sub">I TURN RAW DATA INTO<br>DECISIONS THAT DRIVE GROWTH</h2>
-        <a href="#contact" class="pill-btn"><span>Available for new opportunities</span> <i class="fa-solid fa-sparkles"></i></a>
-        <p class="signature">Nickson Darwin</p>
-      </div>
-      <div class="hero-right" data-reveal>
-        <p>I'm a BI &amp; Automation Analyst crafting reliable Oracle SQL systems,
-          AI-driven automation, and clear, decision-ready Metabase &amp; Power BI dashboards.</p>
-        <div class="hero-location">
-          <i class="fa-solid fa-earth-americas"></i>
-          <span>BASED IN COIMBATORE, INDIA<br>OPEN TO REMOTE WORK</span>
-        </div>
-      </div>
+    <div class="hero-meta">
+      <div><b>3 yrs</b>in data &amp; BI</div>
+      <div><b>100+</b>retail stores in one dashboard</div>
+      <div><b>60%</b>less manual P&amp;L effort</div>
     </div>
   </div>
-</section>
+  <div class="photo-card"><img src="assets/profile.jpg" alt="Nickson Darwin P">
+    <div class="photo-tag"><b>Nickson Darwin P</b>BI &amp; Automation Analyst · Coimbatore, India</div>
+  </div>
+</div></section>
 
-<!-- SELECTED PROJECTS -->
-<section id="projects" class="section">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <h3><span class="plus">＋</span> Selected Projects</h3>
-      <a href="#contact" class="view-all">View all work <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
+<section class="alt"><div class="container">
+  <div class="sec-head reveal"><div class="kicker">What I do</div><h2>More than reports: data that gets used.</h2>
+  <p>Prioritising business problems, data accuracy and decisions over attractive charts.</p></div>
+  <div class="cards4">
+    <div class="card reveal"><div class="ic">&#9783;</div><h4>Organise data</h4><p>Consolidate scattered sources into one reliable, well-modelled reporting flow using SQL.</p></div>
+    <div class="card reveal"><div class="ic">&#9636;</div><h4>BI &amp; analytics</h4><p>Management dashboards that show performance, trends and where action is needed.</p></div>
+    <div class="card reveal"><div class="ic">&#9881;</div><h4>Reporting automation</h4><p>Replace repetitive manual reports with scheduled, error-free pipelines.</p></div>
+    <div class="card reveal"><div class="ic">&#9742;</div><h4>AI-driven solutions</h4><p>Voice and chat automation that collects customer feedback and routes issues to action.</p></div>
+  </div>
+</div></section>
 
-    <div class="projects-grid" data-reveal>
+<section class="alt" id="work"><div class="container">
+  <div class="sec-head reveal"><div class="kicker">Work &amp; case studies</div><h2>Featured case studies</h2>
+  <p>Four projects, each with the business problem, my approach and an interactive dashboard. Select one to explore it.</p></div>
+  <div class="work-grid">
+    <article class="work-card reveal" data-open="m1" tabindex="0"><div class="wc-top"><span class="chip">Retail analytics</span><span class="vis">Interactive dashboard</span></div>
+      <h3>Retail Store Performance Dashboard</h3><div class="metric">100+ stores in one view</div>
+      <p>One management view of store sales, customer ratings and leads, built to show who is winning and where to act.</p>
+      <div class="wc-go">Explore case study <span>&rarr;</span></div></article>
+    <article class="work-card reveal" data-open="m2" tabindex="0"><div class="wc-top"><span class="chip teal">AI voice calling</span><span class="vis">Interactive dashboard</span></div>
+      <h3>Bolna AI Customer Feedback Calling &amp; Analysis</h3><div class="metric">Invoice to issue resolution</div>
+      <p>Automated post-purchase feedback calls that find unhappy customers and give store teams a tracked list of actions.</p>
+      <div class="wc-go">Explore case study <span>&rarr;</span></div></article>
+    <article class="work-card reveal" data-open="m3" tabindex="0"><div class="wc-top"><span class="chip">Finance analytics</span><span class="vis">Interactive dashboard</span></div>
+      <h3>Profit &amp; Loss (P&amp;L) Dashboard</h3><div class="metric">60% less manual effort</div>
+      <p>Revenue, gross margin and profitability across retail and service, with automated reporting for management.</p>
+      <div class="wc-go">Explore case study <span>&rarr;</span></div></article>
+    <article class="work-card reveal" data-open="m4" tabindex="0"><div class="wc-top"><span class="chip teal">HR analytics</span><span class="vis">Interactive dashboard</span></div>
+      <h3>HR Manpower &amp; Payroll Dashboard</h3><div class="metric">Budget vs present headcount</div>
+      <p>Vacancies and excess by business unit and region, plus payroll trends and salary against sales contribution.</p>
+      <div class="wc-go">Explore case study <span>&rarr;</span></div></article>
+  </div>
+</div></section>
 
-      <article class="project-card">
-        <span class="proj-num">01</span>
-        <h4>Sales Command Center</h4>
-        <p class="proj-sub">Oracle SQL · Retail Analytics</p>
-        <div class="mock-window">
-          <div class="mock-bar"><span></span><span></span><span></span></div>
-          <div class="mock-body mock-dash">
-            <div class="mock-title">100+ Stores Live</div>
-            <div class="mock-chart">
-              <i style="--h:40%"></i><i style="--h:65%"></i><i style="--h:50%"></i>
-              <i style="--h:80%"></i><i style="--h:58%"></i><i style="--h:92%"></i><i style="--h:70%"></i>
-            </div>
-          </div>
-        </div>
-        <div class="proj-tags">
-          <span>ORACLE SQL</span><span>METABASE</span><span>BI</span>
-        </div>
-      </article>
 
-      <article class="project-card">
-        <span class="proj-num">02</span>
-        <h4>AI Voice Feedback Recovery</h4>
-        <p class="proj-sub">Bolna · AI Voice Calling Automation</p>
-        <div class="mock-window">
-          <div class="mock-bar"><span></span><span></span><span></span></div>
-          <div class="mock-body mock-chat">
-            <div class="chat-bubble"><i class="fa-solid fa-phone-volume"></i> Auto-calling customers who left a low rating, collecting spoken feedback, and analyzing the responses</div>
-          </div>
-        </div>
-        <div class="proj-tags">
-          <span>BOLNA</span><span>AI VOICE AGENT</span><span>FEEDBACK ANALYSIS</span>
-        </div>
-      </article>
+<!-- CASE STUDY 1 -->
 
-      <article class="project-card">
-        <span class="proj-num">03</span>
-        <h4>P&amp;L Automation Engine</h4>
-        <p class="proj-sub">Reporting Automation</p>
-        <div class="mock-window">
-          <div class="mock-bar"><span></span><span></span><span></span></div>
-          <div class="mock-body mock-flow">
-            <div class="flow-node">Raw Data</div>
-            <i class="fa-solid fa-arrow-right"></i>
-            <div class="flow-node">Auto Clean</div>
-            <i class="fa-solid fa-arrow-right"></i>
-            <div class="flow-node accent">P&amp;L Report</div>
-          </div>
-        </div>
-        <div class="proj-tags">
-          <span>AUTOMATION</span><span>POWER AUTOMATE</span><span>-60% EFFORT</span>
-        </div>
-      </article>
+<!-- CASE STUDY 2 -->
 
-      <article class="project-card">
-        <span class="proj-num">04</span>
-        <h4>HR Attendance Suite</h4>
-        <p class="proj-sub">Multi-Company Dashboard</p>
-        <div class="mock-window">
-          <div class="mock-bar"><span></span><span></span><span></span></div>
-          <div class="mock-body mock-grid4">
-            <div>Co. A</div><div>Co. B</div><div>Co. C</div><div>Co. D</div>
-          </div>
-        </div>
-        <div class="proj-tags">
-          <span>POWER BI</span><span>4 COMPANIES</span><span>DAILY SYNC</span>
-        </div>
-      </article>
+<!-- CASE STUDY 3 -->
 
-      <article class="project-card">
-        <span class="proj-num">05</span>
-        <h4>Textile Production Monitor</h4>
-        <p class="proj-sub">WhatsApp API · Live Reporting</p>
-        <div class="mock-window">
-          <div class="mock-bar"><span></span><span></span><span></span></div>
-          <div class="mock-body mock-chat">
-            <div class="chat-bubble">Production update: Line 3 at 92% ✅</div>
-          </div>
-        </div>
-        <div class="proj-tags">
-          <span>WHATSAPP API</span><span>MONITORING</span>
-        </div>
-      </article>
+<!-- CASE STUDY 4 -->
 
-      <article class="project-card">
-        <span class="proj-num">06</span>
-        <h4>Operations Command Center</h4>
-        <p class="proj-sub">BOM · Payments · Site Visits</p>
-        <div class="mock-window">
-          <div class="mock-bar"><span></span><span></span><span></span></div>
-          <div class="mock-body mock-dash">
-            <div class="mock-title">Unified Ops View</div>
-            <div class="mock-chart">
-              <i style="--h:55%"></i><i style="--h:35%"></i><i style="--h:75%"></i>
-              <i style="--h:45%"></i><i style="--h:88%"></i><i style="--h:62%"></i><i style="--h:30%"></i>
-            </div>
-          </div>
-        </div>
-        <div class="proj-tags">
-          <span>DASHBOARDING</span><span>OPERATIONS</span>
-        </div>
-      </article>
+<section id="journey"><div class="container">
+  <div class="sec-head reveal"><div class="kicker">Career trajectory</div><h2>From education to building business dashboards.</h2>
+  <p>Select a milestone to see what I focused on and contributed.</p></div>
+  <div class="trail reveal" id="trail">
+    <button class="tr on" data-p="tp1"><span>01</span><small>Education</small><b>B.Sc. Information Technology</b></button>
+    <button class="tr" data-p="tp2"><span>02</span><small>Training</small><b>Data Analytics course</b></button>
+    <button class="tr" data-p="tp3"><span>03</span><small>First role</small><b>Junior Data Analyst · VU Solutions</b></button>
+    <button class="tr" data-p="tp4"><span>04</span><small>Current role</small><b>Data Analyst · IT World</b></button>
+  </div>
+  <div class="trail-panes reveal">
+    <div class="pane on" id="tp1"><h4>Education</h4>
+      <ul><li><b>B.Sc. Information Technology</b> (2020 – 2023), Sri Ramakrishna College of Arts and Science, Coimbatore</li>
+      <li><b>Higher Secondary</b> (2018 – 2020), R.K. Sree Rangammal Kalvi Nilayam Hr. Sec School, Coimbatore</li></ul></div>
+    <div class="pane" id="tp2"><h4>Data Analytics course</h4>
+      <p>Data Analysis Certification covering Power BI, SQL, Python and Excel, the foundation for moving into analyst roles.</p></div>
+    <div class="pane" id="tp3"><h4>Junior Data Analyst · VU Solutions</h4>
+      <ul><li>Project tracking dashboards for site completion and customer reporting</li><li>Expense and engineer performance dashboards</li><li>Operations dashboard covering BOM, client payments, site visits and drawings</li><li>WhatsApp chatbot to collect customer drawings and estimates</li></ul></div>
+    <div class="pane" id="tp4"><h4>Data Analyst · IT World <small>(HP, Samsung &amp; Ray-Ban authorized dealer)</small></h4>
+      <div class="pane-cols"><ul>
+        <li>Centralized sales dashboard for 100+ retail stores across India</li>
+        <li>Automated Profit &amp; Loss reporting, cutting manual effort by 60%</li>
+        <li>Bolna AI voice calling for customer feedback and escalation</li>
+        <li>HR attendance, sales incentive and production monitoring automation</li></ul>
+        <div class="contrib-box"><span class="kick">Professional contribution</span>
+          <h5>Employee training &amp; digital workplace adoption</h5>
+          <p>When the company moved from Outlook to Zoho Workplace, I ran a workshop to train employees on the new tools, their features and the options available. A practical contribution to employee enablement and internal knowledge sharing.</p>
+          <div class="flowmini"><div>Outlook</div><span>&rarr;</span><div>Zoho Workplace</div><span>&rarr;</span><div>Team workshop</div></div></div></div></div>
+  </div>
+</div></section>
 
-      <article class="project-card">
-        <span class="proj-num">07</span>
-        <h4>Drawing &amp; Estimate Bot</h4>
-        <p class="proj-sub">WhatsApp Chatbot</p>
-        <div class="mock-window">
-          <div class="mock-bar"><span></span><span></span><span></span></div>
-          <div class="mock-body mock-chat">
-            <div class="chat-bubble">Send your site drawing to get an instant estimate 📐</div>
-          </div>
-        </div>
-        <div class="proj-tags">
-          <span>CHATBOT</span><span>CUSTOMER OPS</span>
-        </div>
-      </article>
+<section class="orbit-sec" id="stack"><div class="container">
+  <div class="sec-head reveal"><div class="kicker" style="color:#7FE3D8">Ecosystem &amp; capabilities</div><h2 style="color:#fff">Tool Stack &amp; Technical Craft</h2>
+  <p style="color:#B9C5DD">Hover over any tool to see how I use it.</p></div>
+  <div class="orbit-wrap reveal"><div class="orbit" id="orbit">
+    <div class="core"><b>Insights Engine</b><small>Data to decisions</small></div>
+  </div>
+  <div class="orbit-info" id="orbitInfo"><b>Select a tool</b><span>Hover over any tool to see how I use it.</span></div></div>
+</div></section>
 
+<section class="contact" id="contact"><div class="container reveal">
+  <h2>Let's turn your data into decisions.</h2>
+  <p>Open to Data Analyst, BI Analyst and automation roles.</p>
+  <div class="row">
+    <a class="btn btn-primary" href="mailto:nicksondarwin05@gmail.com">nicksondarwin05@gmail.com</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/nickson-darwin-0643aa287/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn btn-ghost" href="tel:+919150223853">+91 91502 23853</a>
+    <a class="btn btn-ghost" href="assets/Nickson_Darwin_Resume_SEP_2026.pdf" download>Download resume</a>
+  </div>
+</div></section>
+<footer>© <span id="yr"></span> Nickson Darwin P · All dashboards on this site use illustrative sample data.</footer>
+
+<div class="modal" id="m1" aria-hidden="true"><div class="modal-card"><button class="modal-close" aria-label="Close case study">&times;</button><div class="container">
+  <div class="cs-head reveal"><span class="cs-num">01</span>
+    <div><h3>Retail Store Performance Dashboard</h3><p>One management view of store-wise sales, customer ratings and leads across 100+ retail stores, built to show who is winning and where to act.</p></div>
+    <div class="tags"><span class="chip">Retail analytics</span><span class="chip teal">Management dashboard</span></div></div>
+  <div class="cs-grid">
+    <article class="note"><h5>1 · Business problem</h5><p>Store sales, customer reviews and lead data lived in different places, so management could not easily compare stores or see which ones were underperforming and why.</p></article>
+    <article class="note"><h5>2 · Objective</h5><p>Give management a single dashboard to compare stores, track KPIs and trends, and quickly identify high performers, underperformers and improvement opportunities.</p></article>
+    <article class="note"><h5>3 · My role &amp; approach</h5><ul><li>Organised sales, review and lead data into one reporting flow</li><li>Defined store KPIs and comparison logic</li><li>Designed the dashboard and its drill-down views</li></ul></article>
+  </div>
+  <div class="tools-row"><b>4 · Tools</b><span class="chip">Oracle SQL</span><span class="chip">Metabase</span><span class="chip">Data modelling</span></div>
+
+  <div class="dash reveal">
+    <div class="dash-bar"><div><h5>5 · Store Performance Command View</h5><small>Interactive — try the filters</small></div>
+      <div class="filters"><select id="p1Region"></select><select id="p1Brand"></select></div></div>
+    <div class="sample">Illustrative design with clearly labelled sample data. Not actual company figures.</div>
+    <div class="dash-body">
+      <div class="kpis" id="p1Kpis"></div>
+      <div class="grid3">
+        <div class="panel"><h6>Sales vs target by store</h6><div class="sub">₹ lakh, sample data · sorted by achievement</div><div class="chart tall"><canvas id="p1Sales"></canvas></div></div>
+        <div class="panel"><h6>Sales trend</h6><div class="sub">Filtered stores, last 6 months</div><div class="chart tall"><canvas id="p1Trend"></canvas></div></div>
+      </div>
+      <div class="grid2">
+        <div class="panel"><h6>Leads generated vs converted</h6><div class="sub">By store</div><div class="chart"><canvas id="p1Leads"></canvas></div></div>
+        <div class="panel"><h6>Customer rating by store</h6><div class="sub">Average review rating (out of 5)</div><div class="chart"><canvas id="p1Rating"></canvas></div></div>
+      </div>
+      <div class="panel"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center"><div><h6>Store scorecard</h6><div class="sub">Status combines target achievement and customer rating</div></div>
+        <div class="seg light" id="p1Seg"><button class="on" data-v="all">All</button><button data-v="bad">Needs attention</button><button data-v="good">High performers</button></div></div>
+        <div class="tbl-wrap"><table id="p1Table"></table></div></div>
     </div>
   </div>
-</section>
 
-<!-- PROCESS + TOOLS -->
-<section id="process" class="section alt">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <h3><span class="plus">＋</span> My Process</h3>
+  <div class="cs-grid two">
+    <article class="note"><h5>6 · Key findings</h5><ul><li>Consolidated a centralized sales dashboard for 100+ retail stores across India.</li><li>Store comparison makes underperformers visible next to top stores on the same KPIs.</li><li>Impact numbers: <span class="pending">pending confirmation</span></li></ul></article>
+    <article class="note"><h5>7 · Business value &amp; next steps</h5><ul><li>Faster, evidence-based store reviews instead of manual consolidation.</li><li>Next: alerts for stores falling below target and rating thresholds.</li></ul></article>
+  </div>
+</div></div></div><div class="modal" id="m2" aria-hidden="true"><div class="modal-card"><button class="modal-close" aria-label="Close case study">&times;</button><div class="container">
+  <div class="cs-head reveal"><span class="cs-num">02</span>
+    <div><h3>Bolna AI Customer Feedback Calling &amp; Analysis</h3><p>Automated post-purchase feedback calls that find unhappy customers, capture what went wrong and give store teams a tracked list of actions.</p></div>
+    <div class="tags"><span class="chip">AI voice calling</span><span class="chip teal">Automation</span></div></div>
+  <div class="cs-grid">
+    <article class="note"><h5>1 · Business problem</h5><p>Customers who had a bad purchase experience rarely told the business, so issues went unresolved and low ratings were found too late, if at all.</p></article>
+    <article class="note"><h5>2 · Objective</h5><p>Automate post-purchase feedback collection through AI voice calls, flag low ratings, and help stores take corrective action on customer issues.</p></article>
+    <article class="note"><h5>3 · My role &amp; approach</h5><ul><li>Designed the end-to-end flow from invoice to resolution</li><li>Passed customer and purchase details to the AI caller with Google Apps Script</li><li>Built analysis and follow-up tracking for store teams</li></ul></article>
+  </div>
+  <div class="tools-row"><b>4 · Tools</b><span class="chip">Bolna (AI voice calling)</span><span class="chip">Google Apps Script</span></div>
+
+  <div class="dash reveal">
+    <div class="dash-bar"><div><h5>5 · From invoice to issue resolution</h5><small>Process flow (draft — final flow to be confirmed)</small></div></div>
+    <div class="dash-body">
+      <div class="flow">
+        <div class="step"><i>1</i><b>Invoice raised</b><p>Eligible purchases identified</p></div>
+        <div class="step"><i>2</i><b>Apps Script trigger</b><p>Passes customer &amp; purchase details</p></div>
+        <div class="step"><i>3</i><b>Bolna AI call</b><p>Voice agent asks for feedback &amp; rating</p></div>
+        <div class="step"><i>4</i><b>Connected?</b><p>If not: added to callback list</p></div>
+        <div class="step ok"><i>5</i><b>Feedback captured</b><p>Rating and comments recorded</p></div>
+        <div class="step alert"><i>6</i><b>Low rating flagged</b><p>Escalated to the store team</p></div>
+        <div class="step"><i>7</i><b>Store follow-up</b><p>Issue owner contacts customer</p></div>
+        <div class="step ok"><i>8</i><b>Resolution tracked</b><p>Closed or kept open for action</p></div>
+      </div>
     </div>
-
-    <div class="process-grid">
-      <ol class="process-list" data-reveal>
-        <li><span class="pnum">01</span><div><h4>Discover</h4><p>Understand the business question, stakeholders and available data sources.</p></div></li>
-        <li><span class="pnum">02</span><div><h4>Extract</h4><p>Pull &amp; clean data from Oracle SQL and connected systems.</p></div></li>
-        <li><span class="pnum">03</span><div><h4>Model</h4><p>Structure schemas and relationships for fast, reliable queries.</p></div></li>
-        <li><span class="pnum">04</span><div><h4>Automate</h4><p>Build scheduled pipelines &amp; reports that run without manual effort.</p></div></li>
-        <li><span class="pnum">05</span><div><h4>Deliver</h4><p>Ship Metabase / Power BI dashboards that drive real decisions.</p></div></li>
-      </ol>
-
-      <div class="process-orb" data-reveal>
-        <div class="orb-ring r1"></div>
-        <div class="orb-ring r2"></div>
-        <div class="orb-core">
-          <i class="fa-solid fa-diagram-project"></i>
-          <p>A structured process for reliable, decision-ready data.</p>
-        </div>
+    <div class="dash-bar"><div><h5>Feedback Calling Dashboard</h5><small>Interactive — try the filters</small></div>
+      <div class="filters"><select id="p2Month"></select><select id="p2Brand"></select></div></div>
+    <div class="sample">Illustrative design with clearly labelled sample data. No real customer, call or business figures are shown.</div>
+    <div class="dash-body">
+      <div class="mini-title" style="margin-top:0">A · Feedback funnel</div>
+      <div class="funnel" id="p2Funnel"></div>
+      <div class="mini-title">B · Monthly trend</div>
+      <div class="grid2">
+        <div class="panel"><h6>Connection &amp; feedback capture rate</h6><div class="sub">% of invoices / connected calls, with overall rating</div><div class="chart"><canvas id="p2Rates"></canvas></div></div>
+        <div class="panel"><h6>Low ratings &amp; escalations</h6><div class="sub">Monthly count</div><div class="chart"><canvas id="p2Low"></canvas></div></div>
       </div>
-
-      <div class="tools-box" data-reveal>
-        <h4><span class="plus">＋</span> Tools I Use</h4>
-        <div class="tools-grid">
-          <div class="tool"><i class="fa-solid fa-database"></i> Oracle SQL</div>
-          <div class="tool"><i class="fa-solid fa-chart-pie"></i> Metabase</div>
-          <div class="tool"><i class="fa-solid fa-chart-column"></i> Power BI</div>
-          <div class="tool"><i class="fa-solid fa-file-excel"></i> Excel / Sheets</div>
-          <div class="tool"><i class="fa-brands fa-python"></i> Python</div>
-          <div class="tool"><i class="fa-solid fa-gears"></i> Power Automate</div>
-          <div class="tool"><i class="fa-solid fa-phone-volume"></i> Bolna (AI Voice)</div>
-        </div>
-        <p class="tools-more">&amp; more great tools</p>
-      </div>
+      <div class="mini-title">C · Brand-wise analysis</div>
+      <div class="brands" id="p2Brands"></div>
+      <div class="mini-title">D · Action follow-up</div>
+      <div class="panel"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center"><div><h6>Escalations requiring action</h6><div class="sub">Customer details masked in this public sample</div></div>
+        <div class="seg light" id="p2Seg"><button class="on" data-v="all">All</button><button data-v="High">High</button><button data-v="Medium">Medium</button></div></div>
+        <div class="tbl-wrap"><table id="p2Esc"></table></div></div>
+      <div class="panel" style="margin-top:18px"><h6>Customer callbacks pending</h6><div class="sub">Customers not yet connected or who asked to be called back</div><div class="tbl-wrap"><table id="p2Cb"></table></div></div>
     </div>
   </div>
-</section>
 
-<!-- IMPACT (numbers instead of testimonials) -->
-<section id="impact" class="section">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <h3><span class="plus">＋</span> By The Numbers</h3>
-    </div>
-    <div class="impact-grid" data-reveal>
-      <div class="impact-card">
-        <span class="impact-num" data-count="2">0</span>
-        <p>Years in Data &amp; BI</p>
+  <div class="cs-grid two">
+    <article class="note"><h5>6 · Key findings</h5><ul><li>The flow turns every eligible invoice into a feedback attempt without manual calling.</li><li>Customers called, feedback findings and resolution rates: <span class="pending">pending confirmation</span></li></ul></article>
+    <article class="note"><h5>7 · Business value &amp; next steps</h5><ul><li>Unhappy customers are identified and tracked until resolved, not just counted.</li><li>Next: confirm figures and add resolution-time tracking per store.</li></ul></article>
+  </div>
+</div></div></div><div class="modal" id="m3" aria-hidden="true"><div class="modal-card"><button class="modal-close" aria-label="Close case study">&times;</button><div class="container">
+  <div class="cs-head reveal"><span class="cs-num">03</span>
+    <div><h3>Profit &amp; Loss (P&amp;L) Dashboard</h3><p>A management-ready view of revenue, gross margin and profitability across retail and service, with automated reporting.</p></div>
+    <div class="tags"><span class="chip">Finance analytics</span><span class="chip teal">Reporting automation</span></div></div>
+  <div class="cs-grid">
+    <article class="note"><h5>1 · Business problem</h5><p>P&amp;L reports were prepared manually, which was slow, repetitive and hard to compare across periods, segments and targets.</p></article>
+    <article class="note"><h5>2 · Objective</h5><p>Automate P&amp;L reporting and present revenue, margin, variance and trends in a form management can read at a glance.</p></article>
+    <article class="note"><h5>3 · My role &amp; approach</h5><ul><li>Automated Profit &amp; Loss reporting</li><li>Kept calculation logic and metric definitions unchanged</li><li>Redesigned the visuals for clarity</li></ul></article>
+  </div>
+  <div class="tools-row"><b>4 · Tools</b><span class="chip">Oracle SQL</span><span class="chip">Metabase</span><span class="chip">Reporting automation</span></div>
+
+  <div class="dash reveal">
+    <div class="dash-bar"><div><h5>5 · P&amp;L Management Summary</h5><small>Interactive — try the filters</small></div>
+      <div class="filters"><div class="seg" id="p3Seg"><button class="on" data-v="All">All</button><button data-v="Retail">Retail</button><button data-v="Service">Service</button></div><select id="p3Period"></select></div></div>
+    <div class="sample">Redesigned layout with clearly labelled sample data. Not actual company figures; layout will follow the reference dashboard.</div>
+    <div class="dash-body">
+      <div class="kpis" id="p3Kpis"></div>
+      <div class="grid3">
+        <div class="panel"><h6>Revenue: actual vs target</h6><div class="sub">₹ lakh, sample data</div><div class="chart tall"><canvas id="p3Rev"></canvas></div></div>
+        <div class="panel"><h6>Revenue mix</h6><div class="sub">Retail vs Service (selected period)</div><div class="chart tall"><canvas id="p3Mix"></canvas></div></div>
       </div>
-      <div class="impact-card">
-        <span class="impact-num" data-count="100">0</span>
-        <p>+ Retail Stores Reported</p>
+      <div class="grid2">
+        <div class="panel"><h6>Gross margin %</h6><div class="sub">By segment, monthly</div><div class="chart"><canvas id="p3Gm"></canvas></div></div>
+        <div class="panel"><h6>Variance to target</h6><div class="sub">Actual minus target by month</div><div class="tbl-wrap"><table id="p3Var"></table></div></div>
       </div>
-      <div class="impact-card">
-        <span class="impact-num" data-count="60">0</span>
-        <p>% Manual Effort Cut</p>
-      </div>
-      <div class="impact-card">
-        <span class="impact-num" data-count="4">0</span>
-        <p>Companies Automated</p>
-      </div>
+      <div class="panel" id="p3Insight"></div>
     </div>
   </div>
-</section>
 
-<!-- CONTACT / CTA -->
-<section id="contact" class="section cta-section">
-  <div class="container cta-grid">
-    <div class="cta-left" data-reveal>
-      <h2>LET'S CREATE<br>SOMETHING <span class="script">Data-Driven</span></h2>
-    </div>
-    <div class="cta-mid" data-reveal>
-      <p class="cta-open">I'M CURRENTLY OPEN FOR NEW ROLES</p>
-      <p class="cta-note">BI &amp; Automation Analyst · Data Analyst · Database Administrator — let's build something reliable together.</p>
-      <div class="contact-info">
-        <a href="mailto:nicksondarwin05@gmail.com"><i class="fa-solid fa-envelope"></i> nicksondarwin05@gmail.com</a>
-        <a href="tel:+919150223853"><i class="fa-solid fa-phone"></i> +91 9150223853</a>
-        <a href="#"><i class="fa-solid fa-location-dot"></i> Coimbatore, India</a>
+  <div class="cs-grid two">
+    <article class="note"><h5>6 · Key findings</h5><ul><li>P&amp;L reporting automated, reducing manual effort by 60%.</li><li>Further business results: <span class="pending">pending confirmation</span></li></ul></article>
+    <article class="note"><h5>7 · Business value &amp; next steps</h5><ul><li>Management gets consistent, on-time P&amp;L views instead of manual consolidation.</li><li>Next: align visuals with the final approved dashboard and add period-over-period commentary.</li></ul></article>
+  </div>
+</div></div></div><div class="modal" id="m4" aria-hidden="true"><div class="modal-card"><button class="modal-close" aria-label="Close case study">&times;</button><div class="container">
+  <div class="cs-head reveal"><span class="cs-num">04</span>
+    <div><h3>HR Manpower &amp; Payroll Dashboard</h3><p>Budget vs present headcount, vacancies and excess, plus payroll trends and salary against sales contribution, in one HR management view.</p></div>
+    <div class="tags"><span class="chip">HR analytics</span><span class="chip teal">Workforce planning</span></div></div>
+  <div class="cs-grid">
+    <article class="note"><h5>1 · Business problem</h5><p>HR and management needed a reliable view of where the business was under- or over-staffed against budget, and what payroll cost looked like across business units and regions.</p></article>
+    <article class="note"><h5>2 · Objective</h5><p>Track manpower against budget by business unit, region and store, and connect payroll cost to the sales each unit generates.</p></article>
+    <article class="note"><h5>3 · My role &amp; approach</h5><ul><li>Built the manpower and payroll metrics and filters</li><li>Compared budget vs present, vacancy and excess</li><li>Related salary cost to sales contribution</li></ul></article>
+  </div>
+  <div class="tools-row"><b>4 · Tools</b><span class="chip">Oracle SQL</span><span class="chip">Metabase</span><span class="chip">Data modelling</span></div>
+
+  <div class="dash reveal">
+    <div class="dash-bar"><div><h5>5 · Manpower &amp; Payroll Analysis</h5><small>Interactive — try the filters</small></div>
+      <div class="filters"><select id="p4Month"></select><select id="p4Bu"></select><select id="p4Region"></select></div></div>
+    <div class="sample">Anonymised sample: structure and metric definitions follow the original dashboard. All figures, store names and counts are illustrative; no real employee or payroll data is shown.</div>
+    <div class="dash-body">
+      <div class="mini-title" style="margin-top:0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">Manpower insights
+        <div class="seg light" id="p4Seg"><button data-v="sales">Sales</button><button data-v="service">Service</button><button class="on" data-v="total">Total</button></div></div>
+      <div class="kpis" id="p4Kpis"></div>
+      <div class="grid2">
+        <div class="panel"><h6>Business unit-wise budget vs present</h6><div class="sub">Headcount</div><div class="chart"><canvas id="p4Bu2"></canvas></div></div>
+        <div class="panel"><h6>Region-wise budget vs present</h6><div class="sub">Headcount</div><div class="chart"><canvas id="p4Reg"></canvas></div></div>
       </div>
-      <a href="mailto:nicksondarwin05@gmail.com" class="pill-btn dark"><span>Send me a message</span> <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-    <div class="cta-right" data-reveal>
-      <img src="assets/profile.jpg" alt="Nickson Darwin P">
+      <div class="grid2">
+        <div class="panel"><h6>Top vacancy / excess locations</h6><div class="sub">Largest gaps first</div><div class="tbl-wrap"><table id="p4Loc"></table></div></div>
+        <div class="panel"><h6>To-hire gap by region</h6><div class="sub">Positions to hire (negative = surplus)</div><div class="chart"><canvas id="p4Gap"></canvas></div></div>
+      </div>
+      <div class="mini-title">Payroll insights</div>
+      <div class="kpis" id="p4PayKpis"></div>
+      <div class="grid2">
+        <div class="panel"><h6>Business unit-wise gross payroll</h6><div class="sub">Share of total gross</div><div class="chart"><canvas id="p4Donut"></canvas></div></div>
+        <div class="panel"><h6>Month-wise net salary trend</h6><div class="sub">₹ lakh, sample data</div><div class="chart"><canvas id="p4Trend"></canvas></div></div>
+      </div>
+      <div class="grid2">
+        <div class="panel"><h6>Department-wise headcount</h6><div class="sub">Employees</div><div class="chart"><canvas id="p4Dept"></canvas></div></div>
+        <div class="panel"><h6>Region-wise gross &amp; net salary</h6><div class="sub">₹ lakh</div><div class="chart"><canvas id="p4Pay"></canvas></div></div>
+      </div>
+      <div class="panel"><h6>Business unit: sales vs salary contribution</h6><div class="sub">Salary % against sales % within each BU / type</div><div class="chart"><canvas id="p4Share"></canvas></div></div>
     </div>
   </div>
-</section>
 
-<footer class="footer">
-  <p>Thank you for visiting</p>
-</footer>
-
-<a href="#home" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
-
-<script src="js/script.js"></script>
+  <div class="cs-grid two">
+    <article class="note"><h5>6 · Key findings</h5><ul><li>Budget vs present, vacancy and excess are visible by business unit, region and store.</li><li>Payroll cost is linked to sales contribution per business unit.</li><li>Real findings and savings: <span class="pending">pending confirmation</span></li></ul></article>
+    <article class="note"><h5>7 · Business value &amp; next steps</h5><ul><li>Hiring decisions are based on measured gaps, not estimates.</li><li>Next: forecast attrition and monthly hiring plan against budget.</li></ul></article>
+  </div>
+</div></div></div>
+<script src="js/main.js?v=7"></script>
 </body>
 </html>
