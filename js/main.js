@@ -31,9 +31,10 @@ const sgn = (n, dp = 1) => (n >= 0 ? '+' : '') + n.toFixed(dp);
 const cls = n => n > 0 ? 'up' : n < 0 ? 'down' : 'flat';
 const pill = (t, k) => `<span class="pill ${k}">${t}</span>`;
 const MON = ['Apr','May','Jun','Jul','Aug','Sep'];
+const inits = {};  // dashboards build on first open of their popup
 
 /* ===== Project 1: Retail store performance ===== */
-(function(){
+inits.p1 = function(){
   const regions = ['Chennai','Bangalore','Coimbatore','Hyderabad','Mumbai','Pune'];
   const brands = ['HP','Samsung','Ray-Ban'];
   const r = rng(42);
@@ -91,10 +92,10 @@ const MON = ['Apr','May','Jun','Jul','Aug','Sep'];
   $('#p1Region').onchange = $('#p1Brand').onchange = render;
   seg('#p1Seg', v => { mode = v; render(); });
   render();
-})();
+};
 
 /* ===== Project 2: Bolna feedback calling ===== */
-(function(){
+inits.p2 = function(){
   const brands = ['HP','Samsung','Ray-Ban'];
   const r = rng(7), base = {HP:420, Samsung:300, 'Ray-Ban':75};
   const data = {};
@@ -162,10 +163,10 @@ const MON = ['Apr','May','Jun','Jul','Aug','Sep'];
     ['CB-039','HP','Store 08','2','Switched off','Evening','Low','Retry and then mark unreachable']];
   $('#p2Cb').innerHTML = '<tr><th>ID</th><th>Brand</th><th>Store</th><th>Attempts</th><th>Last outcome</th><th>Preferred time</th><th>Priority</th><th>Next action</th></tr>' +
     cb.map(x => `<tr><td><b>${x[0]}</b></td><td>${x[1]}</td><td>${x[2]}</td><td>${x[3]}</td><td>${x[4]}</td><td>${x[5]}</td><td>${pill(x[6], pk[x[6]])}</td><td>${x[7]}</td></tr>`).join('');
-})();
+};
 
 /* ===== Project 3: P&L ===== */
-(function(){
+inits.p3 = function(){
   const S = {
     Retail:{rev:[520,548,505,590,612,640], tgt:[530,540,545,570,600,620], gm:[17.5,17.8,17.2,18.1,18.4,18.0], opx:[58,60,59,62,63,64]},
     Service:{rev:[140,146,150,158,163,171], tgt:[135,142,150,155,160,165], gm:[46,47,45.5,48,48.5,49], opx:[38,39,40,41,42,43]}};
@@ -206,10 +207,10 @@ const MON = ['Apr','May','Jun','Jul','Aug','Sep'];
   seg('#p3Seg', v => { segSel = v; render(); });
   $('#p3Period').onchange = render;
   render();
-})();
+};
 
 /* ===== Project 4: HR manpower & payroll ===== */
-(function(){
+inits.p4 = function(){
   const regions = ['Chennai','Bangalore','Hyderabad','Coimbatore','Mumbai','Pune'], bus = ['HP','Samsung','Ray-Ban'];
   const r = rng(99), pm = ['Apr','May','Jun','Jul','Aug'];
   const locs = Array.from({length:22}, (_, i) => {
@@ -267,7 +268,7 @@ const MON = ['Apr','May','Jun','Jul','Aug','Sep'];
   ['#p4Month', '#p4Bu', '#p4Region'].forEach(s => $(s).onchange = render);
   seg('#p4Seg', v => { tab = v; render(); });
   render();
-})();
+};
 
 /* ===== page behaviour ===== */
 $('#yr').textContent = new Date().getFullYear();
@@ -287,6 +288,8 @@ addEventListener('scroll', () => { let cur = 0; secs.forEach((s, i) => { if(s &&
     lastFocus = document.activeElement; openEl = m;
     m.classList.add('open'); m.setAttribute('aria-hidden', 'false'); m.scrollTop = 0;
     document.body.classList.add('lock');
+    const key = 'p' + id.slice(1);
+    if(inits[key]){ inits[key](); delete inits[key]; }
     requestAnimationFrame(() => Object.values(Chart.instances).forEach(c => c.resize()));
   }
   function close(){
