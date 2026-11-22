@@ -301,6 +301,46 @@ inits.p5 = function(){
   render();
 };
 
+/* ===== Project 6: Campaign leads & marketing ===== */
+inits.p6 = function(){
+  const cities = ['Chennai','Bangalore','Hyderabad','Coimbatore','Mumbai','Pune'];
+  const r = rng(61), mm = ['Jul','Aug','Sep','Oct','Nov','Dec'];
+  const city = cities.map(c => { const leads = Math.round(220 + r() * 520); return {c, leads, buy:Math.round(leads * (.08 + r() * .14)), spend:+(1.2 + r() * 3.8).toFixed(2), mleads:Math.round(150 + r() * 420)}; });
+  const objs = ['Lead Generation','Awareness','Video views','Influencer'].map((o, i) => ({o, spend:+(2 + r() * 5).toFixed(2), leads:i === 0 ? Math.round(900 + r() * 500) : Math.round(r() * 120)}));
+  const days = ['0-7','8-14','15-30','31-60','60+'], dayv = days.map((_, i) => Math.round(260 * Math.pow(.62, i) + r() * 20));
+  const month = mm.map((m, i) => ({m, spend:+(2 + r() * 3 + i * .2).toFixed(2), leads:Math.round(160 + r() * 260)}));
+  let tab = 'leads';
+  fill('#p6City', ['All cities', ...cities]);
+  function render(){
+    const sel = $('#p6City').value, d = city.filter(x => sel === 'All cities' || x.c === sel);
+    const k = sum(d.map(x => x.leads)), b = sum(d.map(x => x.buy)), sp = sum(d.map(x => x.spend)), ml = sum(d.map(x => x.mleads));
+    const f = sel === 'All cities' ? 1 : (d[0] ? d[0].leads / sum(city.map(x => x.leads)) : 0);
+    if(tab === 'leads'){
+      $('#p6Kpis').innerHTML = kpi('Leads', k) + kpi('Leads who purchased', b) + kpi('Conversion', (b / k * 100).toFixed(1) + '%') +
+        kpi('Spend (₹ lakh)', sp.toFixed(1), 'Sample') + kpi('Spend per purchase', '₹' + Math.round(sp * 100000 / b).toLocaleString('en-IN'), 'Sample');
+      $('#p6T1').textContent = 'City-wise conversion'; $('#p6S1').textContent = 'Leads vs leads who purchased';
+      $('#p6T2').textContent = 'Days from lead to purchase'; $('#p6S2').textContent = 'Share of purchases by time taken';
+      draw('p6C1', {type:'bar', data:{labels:d.map(x => x.c), datasets:[{label:'Leads', data:d.map(x => x.leads), backgroundColor:C.slate, borderRadius:4}, {label:'Purchased', data:d.map(x => x.buy), backgroundColor:C.blue, borderRadius:4}]}, options:{scales:{y:yAxis(), x:xAxis()}}});
+      draw('p6C2', {type:'bar', data:{labels:days, datasets:[{label:'Purchases', data:dayv.map(v => Math.round(v * (f || 1))), backgroundColor:C.teal, borderRadius:4}]}, options:{plugins:{legend:{display:false}}, scales:{y:yAxis(), x:xAxis()}}});
+      const best = [...d].sort((a, b2) => b2.buy / b2.leads - a.buy / a.leads)[0], worst = [...d].sort((a, b2) => a.buy / a.leads - b2.buy / b2.leads)[0];
+      $('#p6Insights').innerHTML = `<li>${best.c} has the highest conversion at ${(best.buy / best.leads * 100).toFixed(1)}%.</li><li>${worst.c} has the lowest at ${(worst.buy / worst.leads * 100).toFixed(1)}%, so it needs the most attention.</li><li>Most purchases happen within the first two weeks after the lead date.</li>`;
+    } else {
+      const cpl = ml ? sp * 100000 / ml : 0;
+      $('#p6Kpis').innerHTML = kpi('Total spend (₹ lakh)', sp.toFixed(1), 'Sample') + kpi('Leads', ml) + kpi('Cost per lead', '₹' + Math.round(cpl).toLocaleString('en-IN'), 'Lead-generation rows') +
+        kpi('Reach (lakh)', (ml * .012 + 1).toFixed(1), 'Sample') + kpi('Impressions (lakh)', (ml * .03 + 2).toFixed(1), 'Sample');
+      $('#p6T1').textContent = 'Spend and leads by objective'; $('#p6S1').textContent = 'Spend in ₹ lakh and leads';
+      $('#p6T2').textContent = 'Monthly spend and leads'; $('#p6S2').textContent = 'Last six months';
+      draw('p6C1', {type:'bar', data:{labels:objs.map(x => x.o), datasets:[{label:'Spend (₹ L)', data:objs.map(x => x.spend), backgroundColor:C.blue, borderRadius:4, yAxisID:'y'}, {label:'Leads', data:objs.map(x => Math.round(x.leads * (f || 1))), backgroundColor:C.teal, borderRadius:4, yAxisID:'y2'}]}, options:{scales:{y:yAxis(), y2:{position:'right', beginAtZero:true, grid:{display:false}}, x:xAxis()}}});
+      draw('p6C2', {type:'line', data:{labels:mm, datasets:[{label:'Spend (₹ L)', data:month.map(x => +(x.spend * (f || 1) * 1.2).toFixed(2)), borderColor:C.blue, tension:.3}, {label:'Leads', data:month.map(x => Math.round(x.leads * (f || 1) * 1.5)), borderColor:C.teal, tension:.3, yAxisID:'y2'}]}, options:{scales:{y:yAxis(), y2:{position:'right', beginAtZero:true, grid:{display:false}}, x:xAxis()}}});
+      const lg = objs[0];
+      $('#p6Insights').innerHTML = `<li>${lg.o} brings almost all the leads (${lg.leads} in this sample).</li><li>Awareness, video and influencer rows have spend but few or no leads, so cost per lead only reflects lead-generation campaigns.</li><li>Spend on rows with no leads recorded is shown separately so it is not hidden in the average.</li>`;
+    }
+  }
+  $('#p6City').onchange = render;
+  seg('#p6Seg', v => { tab = v; render(); });
+  render();
+};
+
 /* ===== page behaviour ===== */
 $('#yr').textContent = new Date().getFullYear();
 $('#navToggle').onclick = () => $('#navLinks').classList.toggle('open');

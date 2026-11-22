@@ -32,7 +32,7 @@
   <nav class="nav-links" id="navLinks">
     <a href="#home">Home</a><a href="#work">Case Studies</a><a href="#stack">Tool Stack</a><a href="#journey">Career</a><a href="#contact">Contact</a>
   </nav>
-  <a href="assets/Nickson_Darwin_Resume.pdf" download class="btn btn-primary">Resume</a>
+  <a href="assets/Nickson_Darwin_Resume_NOV_2026.pdf" download class="btn btn-primary">Resume</a>
   <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
 </div></header>
 
@@ -70,7 +70,7 @@
 
 <section class="alt" id="work"><div class="container">
   <div class="sec-head reveal"><div class="kicker">Work &amp; case studies</div><h2>Featured case studies</h2>
-  <p>Five projects, each with the business problem, my approach and an interactive dashboard. Select one to explore it.</p></div>
+  <p>Six projects, each with the business problem, my approach and an interactive dashboard. Select one to explore it.</p></div>
   <div class="work-grid">
     <article class="work-card reveal" data-open="m1" tabindex="0"><div class="wc-top"><span class="chip">Retail analytics</span><span class="vis">Interactive dashboard</span></div>
       <h3>Retail Store Performance Dashboard</h3><div class="metric">100+ stores in one view</div>
@@ -91,6 +91,10 @@
     <article class="work-card reveal" data-open="m5" tabindex="0"><div class="wc-top"><span class="chip">Web automation</span><span class="vis">Pipeline &amp; report preview</span></div>
       <h3>Playwright Reporting &amp; Reconciliation Automation</h3><div class="metric">Daily reports, no manual downloads</div>
       <p>A bot that collects partner-portal reports, reconciles them with internal sales data and produces ready-to-use exception reports.</p>
+      <div class="wc-go">Explore case study <span>&rarr;</span></div></article>
+    <article class="work-card reveal" data-open="m6" tabindex="0"><div class="wc-top"><span class="chip teal">Marketing analytics</span><span class="vis">Interactive dashboard</span></div>
+      <h3>Campaign Leads: Sales Conversion &amp; Marketing Dashboard</h3><div class="metric">From campaign lead to purchase</div>
+      <p>A two-tab Metabase dashboard that shows how many campaign leads became buyers, and what each campaign cost and delivered.</p>
       <div class="wc-go">Explore case study <span>&rarr;</span></div></article>
   </div>
 </div></section>
@@ -150,7 +154,7 @@
     <a class="btn btn-primary" href="mailto:nicksondarwin52095@gmail.com">nicksondarwin52095@gmail.com</a>
     <a class="btn btn-ghost" href="https://www.linkedin.com/in/nickson-darwin/" target="_blank" rel="noopener">LinkedIn</a>
     <a class="btn btn-ghost" href="tel:+919150223853">+91 91502 23853</a>
-    <a class="btn btn-ghost" href="assets/Nickson_Darwin_Resume.pdf" download>Download resume</a>
+    <a class="btn btn-ghost" href="assets/Nickson_Darwin_Resume_NOV_2026.pdf" download>Download resume</a>
   </div>
 </div></section>
 <footer>© <span id="yr"></span> Nickson Darwin P · All dashboards on this site use illustrative sample data.</footer>
@@ -358,6 +362,46 @@
   </div>
 </div></div></div>
 
-<script src="js/main.js?v=9"></script>
+<div class="modal" id="m6" aria-hidden="true"><div class="modal-card"><button class="modal-close" aria-label="Close case study">&times;</button><div class="container">
+  <div class="cs-head reveal"><span class="cs-num">06</span>
+    <div><h3>Campaign Leads: Sales Conversion &amp; Marketing Dashboard</h3><p>A Metabase dashboard that connects campaign leads to actual purchases and to marketing spend, so management can see which campaigns bring buyers and what they cost.</p></div>
+    <div class="tags"><span class="chip teal">Marketing analytics</span><span class="chip">Lead conversion</span></div></div>
+  <div class="cs-grid">
+    <article class="note"><h5>1 · Business problem</h5><p>Campaign leads were collected in lists by city, and marketing spend sat in a separate sheet. Nobody could easily see how many leads became buyers, how much they bought, or what each campaign cost per lead.</p></article>
+    <article class="note"><h5>2 · Objective</h5><p>Answer two questions in one dashboard: of the leads we collected, how many bought and how much did they spend; and what did each campaign cost and deliver by objective, city and brand.</p></article>
+    <article class="note"><h5>3 · My role &amp; approach</h5><ul><li>Cleaned and loaded the city-wise lead lists into one table, treating each unique mobile number as one lead</li><li>Defined the conversion rules: a purchase on or after the lead date counts, and existing customers are counted separately</li><li>Synced the marketing sheet and ad data automatically, and built the Metabase cards, filters and tabs</li></ul></article>
+  </div>
+  <div class="tools-row"><b>4 · Tools</b><span class="chip">Metabase</span><span class="chip">ClickHouse</span><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Zoho Sheet</span><span class="chip">Meta Marketing API</span></div>
+
+  <div class="dash reveal">
+    <div class="dash-bar"><div><h5>5 · Data flow</h5><small>From lead list and marketing sheet to the dashboard</small></div></div>
+    <div class="dash-body">
+      <div class="flow">
+        <div class="step"><i>1</i><b>Lead lists</b><p>City-wise Excel lists cleaned and loaded into one table</p></div>
+        <div class="step"><i>2</i><b>Match to sales</b><p>Leads matched to purchases; converted vs existing customers</p></div>
+        <div class="step"><i>3</i><b>Marketing data</b><p>Spend sheet synced hourly; ad data kept for reference</p></div>
+        <div class="step ok"><i>4</i><b>Dashboard</b><p>Two tabs with filters and live insights</p></div>
+      </div>
+    </div>
+    <div class="dash-bar"><div><h5>Campaign dashboard preview</h5><small>Interactive. Choose a tab and a city.</small></div>
+      <div class="filters"><div class="seg" id="p6Seg"><button class="on" data-v="leads">Campaign Leads</button><button data-v="mkt">Marketing Leads</button></div><select id="p6City"></select></div></div>
+    <div class="sample">Illustrative preview with clearly labelled sample data. No real leads, customers, campaigns or figures are shown.</div>
+    <div class="dash-body">
+      <div class="kpis" id="p6Kpis"></div>
+      <div class="grid2">
+        <div class="panel"><h6 id="p6T1"></h6><div class="sub" id="p6S1"></div><div class="chart"><canvas id="p6C1"></canvas></div></div>
+        <div class="panel"><h6 id="p6T2"></h6><div class="sub" id="p6S2"></div><div class="chart"><canvas id="p6C2"></canvas></div></div>
+      </div>
+      <div class="panel"><h6>Insights (recalculated with the filters)</h6><ul id="p6Insights" style="margin-top:8px;padding-left:18px;list-style:disc;color:#334155;font-size:.9rem;line-height:1.8"></ul></div>
+    </div>
+  </div>
+
+  <div class="cs-grid two">
+    <article class="note"><h5>6 · Key findings</h5><ul><li>One dashboard now shows lead-to-purchase conversion and marketing cost together, by city, campaign, objective and brand.</li><li>Conversion rates, spend per purchase and business impact: <span class="pending">pending confirmation</span></li></ul></article>
+    <article class="note"><h5>7 · Business value &amp; next steps</h5><ul><li>Marketing can compare campaigns on cost per lead and see where conversion is weakest.</li><li>Next: capture phone numbers on digital leads so they can be tracked to a purchase.</li></ul></article>
+  </div>
+</div></div></div>
+
+<script src="js/main.js?v=11"></script>
 </body>
 </html>
