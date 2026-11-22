@@ -305,7 +305,7 @@ inits.p5 = function(){
 $('#yr').textContent = new Date().getFullYear();
 $('#navToggle').onclick = () => $('#navLinks').classList.toggle('open');
 document.querySelectorAll('#navLinks a').forEach(a => a.onclick = () => $('#navLinks').classList.remove('open'));
-$('#copyEmail').onclick = e => { navigator.clipboard && navigator.clipboard.writeText('nicksondarwin05@gmail.com'); e.target.textContent = 'Copied!'; setTimeout(() => e.target.textContent = 'Copy email', 1800); };
+$('#copyEmail').onclick = e => { navigator.clipboard && navigator.clipboard.writeText('nicksondarwin52095@gmail.com'); e.target.textContent = 'Copied!'; setTimeout(() => e.target.textContent = 'Copy email', 1800); };
 const io = new IntersectionObserver(es => es.forEach(x => { if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } }), {threshold:.08});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 const links = [...document.querySelectorAll('#navLinks a')], secs = links.map(a => document.querySelector(a.getAttribute('href')));
