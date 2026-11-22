@@ -270,6 +270,37 @@ inits.p4 = function(){
   render();
 };
 
+/* ===== Project 5: Playwright reconciliation ===== */
+inits.p5 = function(){
+  const stores = ['Store A','Store B','Store C','Store D','Store E','Store F','Store G','Store H'];
+  const r = rng(21);
+  const reports = {
+    'Serial billing mismatches': {why:'In internal sales, not billed in portal', n:[320, 540]},
+    'Non-matching items': {why:'Not found in portal sales, stock or pending', n:[120, 260]},
+    'Stock reconciliation': {why:'Internal stock differs from portal stock', n:[260, 480]}
+  };
+  Object.values(reports).forEach(rep => {
+    rep.rows = stores.map(s => { const chk = Math.round(rep.n[0] + r() * (rep.n[1] - rep.n[0])); return {s, chk, un:Math.round(chk * (.02 + r() * .09))}; });
+  });
+  fill('#p5Report', Object.keys(reports));
+  function render(){
+    const name = $('#p5Report').value, rep = reports[name], d = rep.rows;
+    const chk = sum(d.map(x => x.chk)), un = sum(d.map(x => x.un));
+    $('#p5Kpis').innerHTML = kpi('Records checked', chk) + kpi('Matched', chk - un, ((chk - un) / chk * 100).toFixed(1) + '%', 'up') +
+      kpi('Unmatched', un, (un / chk * 100).toFixed(1) + '% need action', 'down') + kpi('Stores with gaps', d.filter(x => x.un / x.chk > .06).length, 'above 6% unmatched', 'down');
+    draw('p5Chart', {type:'bar', data:{labels:stores, datasets:[
+      {label:'Matched', data:d.map(x => x.chk - x.un), backgroundColor:C.blue, borderRadius:4},
+      {label:'Unmatched', data:d.map(x => x.un), backgroundColor:C.amber, borderRadius:4}]},
+      options:{scales:{x:{stacked:true, grid:{display:false}}, y:{stacked:true, beginAtZero:true, grid:{color:C.grid}}}}});
+    const top = [...d].sort((a, b) => b.un / b.chk - a.un / a.chk).slice(0, 6);
+    $('#p5Table').innerHTML = '<tr><th>Store</th><th>Unmatched</th><th>Rate</th><th>Reason</th></tr>' +
+      top.map(x => { const p = x.un / x.chk * 100;
+        return `<tr><td><b>${x.s}</b></td><td>${x.un}</td><td>${pill(p.toFixed(1) + '%', p > 6 ? 'bad' : 'warn')}</td><td>${rep.why}</td></tr>`; }).join('');
+  }
+  $('#p5Report').onchange = render;
+  render();
+};
+
 /* ===== page behaviour ===== */
 $('#yr').textContent = new Date().getFullYear();
 $('#navToggle').onclick = () => $('#navLinks').classList.toggle('open');
@@ -322,13 +353,15 @@ addEventListener('scroll', () => { let cur = 0; secs.forEach((s, i) => { if(s &&
     {r:170, t:64, rev:true, nodes:[
       ['https://api.iconify.design/vscode-icons/file-type-excel.svg','Advanced Excel','Analysis, reconciliation and sales incentive calculations.','#2563EB'],
       [si('python'),'Python','Data cleaning and analysis scripts.','#2563EB'],
+      ['https://api.iconify.design/logos/playwright.svg','Playwright','Web automation bots that download portal reports and feed the reconciliation pipeline.','#2563EB'],
       [pa,'Power Automate','Scheduled, error-free reporting workflows that replace manual effort.','#2563EB'],
       [si('googlesheets'),'Google Sheets','Lightweight reporting and data capture.','#2563EB'],
       [si('javascript'),'JavaScript','Web-based service data application.','#2563EB']]},
     {r:235, t:90, rev:false, nodes:[
       [si('googleappsscript'),'Google Apps Script','Triggers feedback calls and passes customer and purchase details to Bolna.','#60A5FA'],
       [bolna,'Bolna','AI voice agent that calls customers for feedback and ratings.','#60A5FA'],
-      [si('whatsapp'),'WhatsApp API','Automated production reports and customer chatbots.','#60A5FA']]}
+      [si('whatsapp'),'WhatsApp API','Automated production reports and customer chatbots.','#60A5FA'],
+      [si('clickhouse'),'ClickHouse','Internal sales, stock and purchase data queried for the reconciliation reports.','#60A5FA']]}
   ];
   const orbit = document.getElementById('orbit'), info = document.getElementById('orbitInfo');
   if(!orbit) return;

@@ -43,7 +43,7 @@
     <p class="lead">I turn scattered business data into clean, trusted dashboards, automate repetitive reporting, and build practical AI-driven solutions that help teams act faster.</p>
     <div class="hero-cta">
       <a href="#work" class="btn btn-primary">View case studies</a>
-      <a href="https://www.linkedin.com/in/nickson-darwin-0643aa287/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/nickson-darwin/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
       <button class="btn btn-ghost" id="copyEmail">Copy email</button>
     </div>
     <div class="hero-meta">
@@ -70,7 +70,7 @@
 
 <section class="alt" id="work"><div class="container">
   <div class="sec-head reveal"><div class="kicker">Work &amp; case studies</div><h2>Featured case studies</h2>
-  <p>Four projects, each with the business problem, my approach and an interactive dashboard. Select one to explore it.</p></div>
+  <p>Five projects, each with the business problem, my approach and an interactive dashboard. Select one to explore it.</p></div>
   <div class="work-grid">
     <article class="work-card reveal" data-open="m1" tabindex="0"><div class="wc-top"><span class="chip">Retail analytics</span><span class="vis">Interactive dashboard</span></div>
       <h3>Retail Store Performance Dashboard</h3><div class="metric">100+ stores in one view</div>
@@ -87,6 +87,10 @@
     <article class="work-card reveal" data-open="m4" tabindex="0"><div class="wc-top"><span class="chip teal">HR analytics</span><span class="vis">Interactive dashboard</span></div>
       <h3>HR Manpower &amp; Payroll Dashboard</h3><div class="metric">Budget vs present headcount</div>
       <p>Vacancies and excess by business unit and region, plus payroll trends and salary against sales contribution.</p>
+      <div class="wc-go">Explore case study <span>&rarr;</span></div></article>
+    <article class="work-card reveal" data-open="m5" tabindex="0"><div class="wc-top"><span class="chip">Web automation</span><span class="vis">Pipeline &amp; report preview</span></div>
+      <h3>Playwright Reporting &amp; Reconciliation Automation</h3><div class="metric">Daily reports, no manual downloads</div>
+      <p>A bot that collects partner-portal reports, reconciles them with internal sales data and produces ready-to-use exception reports.</p>
       <div class="wc-go">Explore case study <span>&rarr;</span></div></article>
   </div>
 </div></section>
@@ -144,7 +148,7 @@
   <p>Open to Data Analyst, BI Analyst and automation roles.</p>
   <div class="row">
     <a class="btn btn-primary" href="mailto:nicksondarwin05@gmail.com">nicksondarwin05@gmail.com</a>
-    <a class="btn btn-ghost" href="https://www.linkedin.com/in/nickson-darwin-0643aa287/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/nickson-darwin/" target="_blank" rel="noopener">LinkedIn</a>
     <a class="btn btn-ghost" href="tel:+919150223853">+91 91502 23853</a>
     <a class="btn btn-ghost" href="assets/Nickson_Darwin_Resume_SEP_2026.pdf" download>Download resume</a>
   </div>
@@ -315,6 +319,45 @@
     <article class="note"><h5>7 · Business value &amp; next steps</h5><ul><li>Hiring decisions are based on measured gaps, not estimates.</li><li>Next: forecast attrition and monthly hiring plan against budget.</li></ul></article>
   </div>
 </div></div></div>
-<script src="js/main.js?v=8"></script>
+<div class="modal" id="m5" aria-hidden="true"><div class="modal-card"><button class="modal-close" aria-label="Close case study">&times;</button><div class="container">
+  <div class="cs-head reveal"><span class="cs-num">05</span>
+    <div><h3>Playwright Reporting &amp; Reconciliation Automation</h3><p>A daily bot that collects partner-portal reports, reconciles them with internal sales data and delivers exception reports, replacing manual downloads and Excel comparisons.</p></div>
+    <div class="tags"><span class="chip">Web automation</span><span class="chip teal">Reconciliation</span></div></div>
+  <div class="cs-grid">
+    <article class="note"><h5>1 · Business problem</h5><p>Sales, stock and pending-order reports sat in a partner portal, while the company's own sales data sat in a separate database. Comparing the two meant manual downloads and Excel work, which made it hard to see which items did not match.</p></article>
+    <article class="note"><h5>2 · Objective</h5><p>Automate the daily collection of portal reports, combine them with internal data, and produce reconciliation reports that teams can act on straight away.</p></article>
+    <article class="note"><h5>3 · My role &amp; approach</h5><ul><li>Built the pipeline end to end in Python: Playwright downloads the reports, SQL pulls internal data from ClickHouse</li><li>Defined the matching rules between the two sources, including which records to exclude</li><li>Generated Excel reconciliation workbooks for each report type on a daily run</li></ul></article>
+  </div>
+  <div class="tools-row"><b>4 · Tools</b><span class="chip">Playwright</span><span class="chip">Python</span><span class="chip">ClickHouse</span><span class="chip">SQL</span><span class="chip">Excel reports</span></div>
+
+  <div class="dash reveal">
+    <div class="dash-bar"><div><h5>5 · Pipeline design</h5><small>From portal download to exception report</small></div></div>
+    <div class="dash-body">
+      <div class="flow">
+        <div class="step"><i>1</i><b>Portal download</b><p>Playwright logs in and downloads sales, batch and pending reports for the date range</p></div>
+        <div class="step"><i>2</i><b>Internal data pull</b><p>SQL queries on ClickHouse: sales, goods in transit, purchases and stock</p></div>
+        <div class="step"><i>3</i><b>Reconcile</b><p>Portal vs internal data; unmatched records become the backlog list</p></div>
+        <div class="step ok"><i>4</i><b>Excel reports</b><p>Billing, missing items, store-wise comparisons and stock reconciliation</p></div>
+      </div>
+    </div>
+    <div class="dash-bar"><div><h5>Reconciliation report preview</h5><small>Interactive. Choose a report.</small></div>
+      <div class="filters"><select id="p5Report"></select></div></div>
+    <div class="sample">Illustrative preview with clearly labelled sample data. No real stores, items or figures are shown.</div>
+    <div class="dash-body">
+      <div class="kpis" id="p5Kpis"></div>
+      <div class="grid3">
+        <div class="panel"><h6>Matched vs unmatched by store</h6><div class="sub">Sample records checked</div><div class="chart tall"><canvas id="p5Chart"></canvas></div></div>
+        <div class="panel"><h6>Items needing action</h6><div class="sub">Masked sample rows</div><div class="tbl-wrap"><table id="p5Table"></table></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-grid two">
+    <article class="note"><h5>6 · Key findings</h5><ul><li>One automated daily run replaces manual report downloads and comparisons.</li><li>Time saved, mismatch counts and business impact: <span class="pending">pending confirmation</span></li></ul></article>
+    <article class="note"><h5>7 · Business value &amp; next steps</h5><ul><li>Teams get the unmatched items by store each day and can fix them while the data is fresh.</li><li>Next: failure alerts for the daily run and a dashboard on top of the reconciliation output.</li></ul></article>
+  </div>
+</div></div></div>
+
+<script src="js/main.js?v=9"></script>
 </body>
 </html>
